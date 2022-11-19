@@ -7,6 +7,7 @@
 // import 'package:collagecounsellor/Shortcut.dart';
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:counsellor/Home_page.dart';
+import 'package:counsellor/Uploadecontact.dart';
 import 'package:counsellor/collage_category_page.dart';
 import 'package:counsellor/shortcut.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
@@ -179,9 +180,10 @@ class _NavigationBardownState extends State<NavigationBardown> {
   final screens =[
     Home_page(),
     collegetier(),
-    Homepage(),
+    UploadProductScreen(),
     // Homepage(),
     // Profile(),
+
 
   ];
 
