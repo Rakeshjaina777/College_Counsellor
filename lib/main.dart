@@ -2,10 +2,7 @@
 
 
 
-// import 'package:collagecounsellor/Major_screen/Home_page.dart';
-// import 'package:collagecounsellor/Major_screen/bottom_navigation.dart';
-// import 'package:collagecounsellor/Shortcut.dart';
-// import 'package:firebase_core/firebase_core.dart';
+
 import 'package:counsellor/Home_page.dart';
 import 'package:counsellor/Uploadecontact.dart';
 import 'package:counsellor/collage_category_page.dart';
@@ -15,10 +12,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
-// import 'package:google_fonts/google_fonts.dart';
-// import 'package:provider/provider.dart';
-// import 'package:provider/provider.dart';
+
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

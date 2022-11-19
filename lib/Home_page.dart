@@ -50,12 +50,12 @@ List<String>Homepageview =[
 
 List<String>images=[
 
-  "Assests/images/bags/apple.jpg",
-  "Assests/images/bags/apple.jpg"
-  // "Assests/images/bags/dell.png",
-  // "Assests/images/bags/asus.jpg",
-  // "Assests/images/bags/hp.jpg",
-  // "Assests/images/bags/acer.png",
+  "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=400",
+  "https://images.pexels.com/photos/1591060/pexels-photo-1591060.jpeg?auto=compress&cs=tinysrgb&w=400",
+  "https://miro.medium.com/max/828/1*-EFdnPuVrwUOmYte11v0OA.png",
+  "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=400",
+  "https://miro.medium.com/max/828/1*-EFdnPuVrwUOmYte11v0OA.png",
+  "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=400",
   // "Assests/images/bags/lenovo.jpg"
 
 
@@ -70,8 +70,15 @@ List<String>firebasename=[
 ];
 
 List<String>headingname=[
-  'Major Schloraship',
-  'Major Schloraship'
+
+  'useful website',
+  'Pinnacle Course For You >',
+
+  'Trending College Counsellors For Engineering college >',
+  'Leading Private & Government Schloraship >',
+  'Driving Class Near You >',
+  'Deal of the Day >'
+
 
 
 ];
@@ -79,15 +86,16 @@ List<String>headingname=[
 
 List<String>coursename=[
 
-  "usefulwebsite",
+  // "usefulwebsite",
   // "usefulwebsite"
 
   "App Development",
-  // "Web Development",
-  // "D.S.A",
-  // "Grapic Designer",
-  // "Data Science",
-  // "A.I",
+  "Web Development",
+  "D.S.A",
+  "A.I",
+  "Grapic Designer",
+  "Data Science",
+
 
 
 
@@ -669,7 +677,7 @@ class _Home_pageState extends State<Home_page> {
 
 
                                                                       backgroundImage:
-                                                                      AssetImage(
+                                                                      NetworkImage(
                                                                           images[index])
 
                                                                   )
