@@ -3,6 +3,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:counsellor/Home_page.dart';
+import 'package:counsellor/Product_detail_screen.dart';
 import 'package:counsellor/shop_by_course.dart';
 import 'package:counsellor/shortcut.dart';
 import 'package:flutter/cupertino.dart';
@@ -112,7 +113,8 @@ class _collegetierState extends State<collegetier> {
                     //       ),
                     // ),
 
-                    Text("Price Preference", style: GoogleFonts.poppins(fontSize: 13.sp, color: Colors.black,fontWeight: FontWeight.w400),)
+
+                    Text("Engineering College List", style: GoogleFonts.poppins(fontSize: 13.sp, color: Colors.black,fontWeight: FontWeight.w400),)
                   ],
                 ),
 
@@ -125,23 +127,15 @@ class _collegetierState extends State<collegetier> {
 
 
                   labelPadding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 8.h),
-                  // labelPadding: EdgeInsets.all(3),
-// padding: EdgeInsets.all(15),
-                  // indicatorPadding: EdgeInsets.all(10),
+
                   tabs: [
 
-                    RepeatedText(label:'Below 30k'),
-                    // RepeatedText(label:'30k-35k'),
-                    RepeatedText(label:'35k-40k'),
-                    RepeatedText(label:'40k-45k'),
-                    RepeatedText(label:'45k-50k'),
-                    RepeatedText(label:'50k-55k'),
-                  
-                    // RepeatedText(label:"Above 100k"),
-                    // RepeatedText(label:'99k-119k'),
-                    // RepeatedText(label:'119k-149k'),
-                    // RepeatedText(label:'Above 150k'),
-                    // RepeatedText(label:'69k-79k'),
+                    RepeatedText(label:'Tier-I Colleges'),
+
+                    RepeatedText(label:'Tier-II Colleges'),
+                    RepeatedText(label:'Tier-III Colleges'),
+                    RepeatedText(label:'Tier-IV Colleges'),
+
                   ],
 
 
@@ -198,12 +192,10 @@ class _collegetierState extends State<collegetier> {
         body: Material(
           child: TabBarView(
             children: [
-              ProductModel(),
-
-              ProductModel(),
-              ProductModel(),
-              ProductModel(),
-              ProductModel(),
+             tier1(),
+              tier2(),
+              tier3(),
+              tier4(),
 
             ],
           ),
@@ -386,11 +378,11 @@ class _collegetierState extends State<collegetier> {
 
 
 class ProductModel extends StatefulWidget {
-  // final dynamic product;
+  final dynamic product;
 
 
   const ProductModel({Key? key,
-    // required this.product
+    required this.product
   }) : super(key: key);
 
 
@@ -428,13 +420,14 @@ class _ProductModelState extends State<ProductModel> {
                 child: GestureDetector(
 
                   onTap: () {
-                    // Navigator.push(context,
-                    //     MaterialPageRoute(builder: (context) =>
-                    //         ProductDetailsScreen(
-                    //             proList: widget.product
-                    //         )
-                    //     ));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) =>
+                            ProductDetailsScreen(
+                                proList: widget.product
+                            )
+                        ));
                   },
+
 
 
                   child: Card(
@@ -481,60 +474,65 @@ class _ProductModelState extends State<ProductModel> {
 
 
                             ),
-                            child:  Image.network("https://gumlet.assettype.com/freepressjournal/2022-09/89fbc2eb-c6ed-4890-bd5e-056a6a26b1d5/dc_Cover_g4bflmnbi4coegebsi9036ohp2_20200625191532_Medi.jpeg?format=webp&dpr=1.0&q=70&w=768")
+                            child:  Image.network(widget.product['image'][1])
                           ),
 
 
 
-                        Positioned(
-                          bottom: 70,
-                          right: 1.w,
-                          left: 5,
-                          child: Center(
-                            child: Container(
+                        GestureDetector(
+                          onTap:(){
 
-                              // color: Colors.red,
-                              height: 50.h,
+                          } ,
+                          child: Positioned(
+                            bottom: 70,
+                            right: 1.w,
+                            left: 5,
+                            child: Center(
+                              child: Container(
 
-
-                              width: size.width ,
-
-                              margin: EdgeInsets.all(5.r),
-
-
-                              decoration: BoxDecoration(
-
-                                // color: Colors.green,
-
-                                // border: Border.all(color:Colors.black54,width: 2.55),
-
-                                borderRadius: BorderRadius.circular(
-                                    1),
+                                // color: Colors.red,
+                                height: 50.h,
 
 
-                              ),
-                              child:   CachedNetworkImage(
+                                width: size.width ,
+
+                                margin: EdgeInsets.all(5.r),
+
+
+                                decoration: BoxDecoration(
+
+                                  // color: Colors.green,
+
+                                  // border: Border.all(color:Colors.black54,width: 2.55),
+
+                                  borderRadius: BorderRadius.circular(
+                                      1),
+
+
+                                ),
+                                child:   CachedNetworkImage(
 //
 
-                                fit: BoxFit.fitWidth,
+                                  fit: BoxFit.fitWidth,
 
 
 
 
-                                // imageUrl: widget.product['Images'][0],
-                                imageUrl: images[0],
-                                placeholder: (context, url) => Shimmer.fromColors(
-                                  baseColor: Colors.grey[100]!,
-                                  highlightColor: Colors.grey[400]!,
-                                  period:Duration(seconds: 1),
-                                  loop:5, child: Container(
-                                  // height: 6,
-                                  // width: 6,
-                                  color: Colors.black54,
-                                ),
-                                ),
-                                errorWidget: (context, url, error) => Image.asset("Assests/images/bags/Notfound.jpg"),
+                                  // imageUrl: widget.product['Images'][0],
+                                  imageUrl: widget.product['image'][0],
+                                  placeholder: (context, url) => Shimmer.fromColors(
+                                    baseColor: Colors.grey[100]!,
+                                    highlightColor: Colors.grey[400]!,
+                                    period:Duration(seconds: 1),
+                                    loop:2, child: Container(
+                                    // height: 6,
+                                    // width: 6,
+                                    color: Colors.black54,
+                                  ),
+                                  ),
+                                  errorWidget: (context, url, error) => Image.asset("Assests/images/bags/Notfound.jpg"),
 // errorWidget: (context, url, error) => Icon(Icons.error),
+                                ),
                               ),
                             ),
                           ),
@@ -563,7 +561,7 @@ class _ProductModelState extends State<ProductModel> {
                                       child: Padding(
                                         padding:  EdgeInsets.symmetric(vertical: 1.h),
                                         child: CustomText(
-                                          text: headingname[0].replaceAll("  ","",),
+                                          text: widget.product['Proname'][0].replaceAll("  ","",),
                                           fontSize: 13.5.h,
                                           textdirection: TextDirection
                                               .ltr,
@@ -574,8 +572,8 @@ class _ProductModelState extends State<ProductModel> {
                                   //     alignment: Alignment.center,
                                   //     child: CustomText(text: "window 11",fontSize:14,)),
 
-                                  // Center(child: Text(widget.product['Proname'][1].replaceAll("  ","",),
-                                  Center(child: Text(headingname[0],
+                                  Center(child: Text(widget.product['Proname'][1].replaceAll("  ","",),
+                                  // Center(child: Text(headingname[0],
                                     style: TextStyle(fontSize: 11.h,fontWeight: FontWeight.w300), overflow: TextOverflow.ellipsis,maxLines: 2, )),
                                   // SizedBox(height: 2,),
 
@@ -604,45 +602,6 @@ class _ProductModelState extends State<ProductModel> {
               ),
 
 
-              // Padding(
-              //   padding: EdgeInsets.all(8.0),
-              //   child: Positioned(
-              //     // top: MediaQuery.of(context).size.height*0.5,
-              //     // left: MediaQuery.of(context).size.height*0.5,
-              //     right: 1,
-              //     bottom: 5,
-              //     child: Container(
-              //         decoration: BoxDecoration(
-              //
-              //
-              //           color: AppColors.Common,
-              //
-              //           // border: Border.all(color:Colors.black54,width: 2.55),
-              //
-              //           borderRadius: BorderRadius.circular(8.r),
-              //         ),
-              //
-              //         height: 44.h,
-              //         width: 40.w,
-              //
-              //
-              //
-              //     ),
-              //   ),
-              // ),
-
-
-              // Positioned(
-              // top: 4,
-              // right: 5,
-              // child:   Container(
-              //
-              //   height: 59,
-              //   width: 45,
-              //   color: Colors.purple,
-              //
-              // ),
-              // )
 
             ],
           ),
@@ -653,3 +612,315 @@ class _ProductModelState extends State<ProductModel> {
   }
 }
 
+
+
+
+class tier1 extends StatefulWidget {
+  const tier1({Key? key}) : super(key: key);
+
+  @override
+  State<tier1> createState() => _tier1State();
+}
+
+class _tier1State extends State<tier1> {
+  @override
+  Widget build (BuildContext context) {
+    // for (var i = 0; i < number.length; ++i) {
+    final Stream<QuerySnapshot> _prodcutsStream = FirebaseFirestore.instance
+        .collection('college').where("tier", isEqualTo: '1').snapshots();
+    // final product = snapshot.data!.docs[index];
+
+    // const q =query(Price,orderBy("Score"));
+
+
+    return
+      StreamBuilder<QuerySnapshot>(
+        stream: _prodcutsStream,
+
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (snapshot.hasError) {
+            return const Text('Something went wrong');
+          }
+
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          if (snapshot.data!.docs.isEmpty) {
+            return const Center(
+                child: Text(
+                  'This category \n\n has no items yet !',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 26,
+                      color: Colors.blueGrey,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Acme',
+                      letterSpacing: 1.5),
+                ));
+          }
+          return SingleChildScrollView(
+            child: Column(
+              children: [
+
+
+                SizedBox(
+                  // height:2580,
+                  width: 420,
+                  child: ListView.builder(
+                    itemCount: snapshot.data!.docs.length,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) =>
+                        ProductModel(product: snapshot.data!.docs[index],),
+                  ),
+                ),
+
+
+
+              ],
+            ),
+          );
+        },
+      );
+
+  }
+
+
+}
+
+
+class tier2 extends StatefulWidget {
+  const tier2({Key? key}) : super(key: key);
+
+  @override
+  State<tier2> createState() => _tier2State();
+}
+
+class _tier2State extends State<tier2> {
+  @override
+  Widget build (BuildContext context) {
+    // for (var i = 0; i < number.length; ++i) {
+    final Stream<QuerySnapshot> _prodcutsStream = FirebaseFirestore.instance
+        .collection('college').where("tier", isEqualTo: '2').snapshots();
+    // final product = snapshot.data!.docs[index];
+
+    // const q =query(Price,orderBy("Score"));
+
+
+    return
+      StreamBuilder<QuerySnapshot>(
+        stream: _prodcutsStream,
+
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (snapshot.hasError) {
+            return const Text('Something went wrong');
+          }
+
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          if (snapshot.data!.docs.isEmpty) {
+            return const Center(
+                child: Text(
+                  'This category \n\n has no items yet !',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 26,
+                      color: Colors.blueGrey,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Acme',
+                      letterSpacing: 1.5),
+                ));
+          }
+          return SingleChildScrollView(
+            child: Column(
+              children: [
+
+
+                SizedBox(
+                  // height:2580,
+                  width: 420,
+                  child: ListView.builder(
+                    itemCount: snapshot.data!.docs.length,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) =>
+                        ProductModel(product: snapshot.data!.docs[index],),
+                  ),
+                ),
+
+
+
+              ],
+            ),
+          );
+        },
+      );
+
+  }
+
+
+}
+
+
+class tier3 extends StatefulWidget {
+  const tier3({Key? key}) : super(key: key);
+
+  @override
+  State<tier3> createState() => _tier3State();
+}
+
+class _tier3State extends State<tier3> {
+  @override
+  Widget build (BuildContext context) {
+    // for (var i = 0; i < number.length; ++i) {
+    final Stream<QuerySnapshot> _prodcutsStream = FirebaseFirestore.instance
+        .collection('college').where("tier", isEqualTo: '3').snapshots();
+    // final product = snapshot.data!.docs[index];
+
+    // const q =query(Price,orderBy("Score"));
+
+
+    return
+      StreamBuilder<QuerySnapshot>(
+        stream: _prodcutsStream,
+
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (snapshot.hasError) {
+            return const Text('Something went wrong');
+          }
+
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          if (snapshot.data!.docs.isEmpty) {
+            return const Center(
+                child: Text(
+                  'This category \n\n has no items yet !',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 26,
+                      color: Colors.blueGrey,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Acme',
+                      letterSpacing: 1.5),
+                ));
+          }
+          return SingleChildScrollView(
+            child: Column(
+              children: [
+
+
+                SizedBox(
+                  // height:2580,
+                  width: 420,
+                  child: ListView.builder(
+                    itemCount: snapshot.data!.docs.length,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) =>
+                        ProductModel(product: snapshot.data!.docs[index],),
+                  ),
+                ),
+
+
+
+              ],
+            ),
+          );
+        },
+      );
+
+  }
+
+
+}
+
+class tier4 extends StatefulWidget {
+  const tier4({Key? key}) : super(key: key);
+
+  @override
+  State<tier4> createState() => _tier4State();
+}
+
+class _tier4State extends State<tier4> {
+  @override
+  Widget build (BuildContext context) {
+    // for (var i = 0; i < number.length; ++i) {
+    final Stream<QuerySnapshot> _prodcutsStream = FirebaseFirestore.instance
+        .collection('college').where("tier", isEqualTo: '4').snapshots();
+    // final product = snapshot.data!.docs[index];
+
+    // const q =query(Price,orderBy("Score"));
+
+
+    return
+      StreamBuilder<QuerySnapshot>(
+        stream: _prodcutsStream,
+
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (snapshot.hasError) {
+            return const Text('Something went wrong');
+          }
+
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          if (snapshot.data!.docs.isEmpty) {
+            return const Center(
+                child: Text(
+                  'This category \n\n has no items yet !',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 26,
+                      color: Colors.blueGrey,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Acme',
+                      letterSpacing: 1.5),
+                ));
+          }
+          return SingleChildScrollView(
+            child: Column(
+              children: [
+
+
+                SizedBox(
+                  // height:2580,
+                  width: 420,
+                  child: ListView.builder(
+                    itemCount: snapshot.data!.docs.length,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) =>
+                        ProductModel(product: snapshot.data!.docs[index],),
+                  ),
+                ),
+
+
+
+              ],
+            ),
+          );
+        },
+      );
+
+  }
+
+
+}
