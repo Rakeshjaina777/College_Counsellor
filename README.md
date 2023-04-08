@@ -1,6 +1,6 @@
 # counsellor
 
-A 3 Flutter project forDevHeat_Dev-demon.
+A Flutter project forDevHeat_Dev-demon.
 
 Team member name :
 1.Rakesh jain(lead),
