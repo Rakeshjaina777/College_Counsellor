@@ -4,7 +4,7 @@ A 3 Flutter project forDevHeat_Dev-demon.
 
 Team member name :
 1.Rakesh jain(lead),
-2. Gagandeep
+
 
  Problem Statement and Soln we are Providing:
  
