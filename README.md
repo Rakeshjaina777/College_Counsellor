@@ -1,6 +1,23 @@
-# DevHeat_Dev-demon Flutter Project
 
 Welcome to the DevHeat_Dev-demon Flutter project! This project aims to address the challenges faced by students after their JEE exam and during the college selection process. Led by Rakesh Jain, our team has developed an application to provide comprehensive guidance and support to students transitioning from JEE counseling to college life.
+
+## Screenshots
+
+<div align="center">
+  <table>
+    <tr>
+      <td><img src="https://github.com/user-attachments/assets/5eca27fc-fa15-47b0-846d-57d31ad4ee5f" width="210px" height="420px" alt="IMG-1"/></td>
+      <td><img src="https://github.com/user-attachments/assets/aa4eb552-52e3-4847-87c3-24e65185e80c" width="210px" height="420px" alt="IMG-2"/></td>
+      <td><img src="https://github.com/user-attachments/assets/3c6ffd2f-4bea-43db-8d5a-e7719ed2dfa4" width="210px" height="420px" alt="IMG-3"/></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/user-attachments/assets/de54086c-1fd5-4d29-865b-80cac47e959e" width="280px" height="520px" alt="IMG-4"/></td>
+      <td><img src="https://github.com/user-attachments/assets/30c4736b-1887-457e-9806-c674095b82d4" width="280px" height="520px" alt="IMG-5"/></td>
+    </tr>
+  </table>
+</div>
+
+
 
 ## Team Members:
 
@@ -67,10 +84,7 @@ flutter run
 
 ## Video Link:
 
-[Insert Video Link Here]
+
 
 Happy coding!
 
----
-
-Feel free to customize the README file further according to your project's specific details and requirements.
